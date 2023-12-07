@@ -19,3 +19,12 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+
+fun String.parseSpaceSeparatedLongs(): List<Long> {
+    return split(Regex("\\s+")).mapNotNull { it.toLongOrNull() }
+}
+
+fun String.parseSpaceSeparatedInts(): List<Int> {
+    return split(Regex("\\s+")).mapNotNull { it.toIntOrNull() }
+}
